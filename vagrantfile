@@ -99,4 +99,9 @@ Vagrant.configure("2") do |config|
       trigger.run = { path: "scripts/nodes_gluster.sh"}
     end #end trigger
 
+    config.trigger.after :up do |trigger|
+      trigger.name = "Run flask app on webservers"
+      trigger.run = { path: "scripts/runflask.sh"}
+    end #end trigger
+
 end #end config
